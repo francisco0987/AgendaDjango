@@ -5,10 +5,11 @@ from .models import Categoria, Contato
 
 class ContatoAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'sobrenome', 'telefone',
-                    'email', 'data_criacao', 'categoria')
+                    'email', 'data_criacao', 'categoria', 'mostrar')
 
     # add links
     list_display_links = ('id', 'nome', 'sobrenome')
+    list_editable = ('telefone', 'mostrar')
     # add filtros
     # list_filter = ('nome', 'sobrenome')
     list_per_page = 5 # coloca 10 elementos por página
