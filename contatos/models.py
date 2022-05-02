@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 import email
 from email.policy import default
 from django.db import models
@@ -36,6 +37,8 @@ class Contato(models.Model):
     descricao = models.TextField(blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     mostrar = models.BooleanField(default=True)
+    #%Y/%m/%d cria uma pasta com ano, mes, dia
+    foto = models.ImageField(blank=True, upload_to='fotos/%Y/%m/')  
 
     def __str__(self):
         return self.nome
